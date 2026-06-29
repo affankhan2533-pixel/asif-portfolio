@@ -231,6 +231,20 @@ function SceneContent() {
 
 // ─── EXPORTED COMPONENT ───────────────────────────────────
 export default function Scene3D() {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth < 768;
+      setIsMobile(isTouch);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  if (isMobile) return null;
+
   return (
     <div style={{
       position: 'fixed',
