@@ -1,0 +1,369 @@
+/* Admin Layout Grid */
+.admin-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #080808;
+  color: #F5F5F0;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+/* Sidebar navigation */
+.admin-sidebar {
+  width: 260px;
+  height: 100%;
+  background-color: #111111;
+  border-right: 1px solid #222222;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 24px;
+}
+
+.admin-sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-brand-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #F5F5F0;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.admin-brand-logo span {
+  color: #FFFFFF;
+  margin: 0 2px;
+}
+
+.admin-badge {
+  font-size: 8px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5A5A58;
+}
+
+.admin-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 48px;
+  flex-grow: 1;
+}
+
+.admin-nav-item {
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #B8B8B4;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.admin-nav-item:hover, .admin-nav-item.active {
+  color: #FFFFFF;
+}
+
+.admin-nav-item.active {
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.admin-logout-btn {
+  background: transparent;
+  border: none;
+  color: #5A5A58;
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: none !important;
+  transition: color 0.3s ease;
+  padding: 8px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.admin-logout-btn:hover {
+  color: #FFFFFF;
+}
+
+/* Viewport panel details */
+.admin-main-viewport {
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding: 48px;
+  background-color: #080808;
+}
+
+.admin-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222222;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.admin-page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #F5F5F0;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+
+/* Primary admin utility buttons */
+.admin-btn {
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  padding: 10px 24px;
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: none !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-btn:hover {
+  background-color: #FFFFFF;
+  color: #080808;
+}
+
+.admin-btn-secondary {
+  border-color: #5A5A58;
+  color: #B8B8B4;
+}
+
+.admin-btn-secondary:hover {
+  background-color: #5A5A58;
+  color: #FFFFFF;
+}
+
+.admin-btn-danger {
+  border-color: #FF4444;
+  color: #FF4444;
+}
+
+.admin-btn-danger:hover {
+  background-color: #FF4444;
+  color: #FFFFFF;
+}
+
+.admin-btn-row {
+  display: flex;
+  gap: 16px;
+}
+
+/* Card metrics */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.admin-stat-card {
+  background-color: #111111;
+  border: 1px solid #222222;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-stat-label {
+  font-size: 8px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #5A5A58;
+}
+
+.admin-stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #FFFFFF;
+}
+
+/* Dynamic forms */
+.admin-form {
+  background-color: #111111;
+  border: 1px solid #222222;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 800px;
+}
+
+.admin-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-form-label {
+  font-size: 9px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #B8B8B4;
+}
+
+.admin-input, .admin-textarea, .admin-select {
+  background-color: transparent;
+  border: 1px solid #222222;
+  padding: 12px;
+  color: #F5F5F0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 200;
+  outline: none;
+}
+
+.admin-input:focus, .admin-textarea:focus, .admin-select:focus {
+  border-color: #FFFFFF;
+}
+
+.admin-textarea {
+  resize: vertical;
+}
+
+.admin-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Tabular layouts */
+.admin-table-container {
+  border: 1px solid #222222;
+  background-color: #111111;
+  overflow: hidden;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th, .admin-table td {
+  padding: 16px 24px;
+  border-bottom: 1px solid #222222;
+}
+
+.admin-table th {
+  background-color: #111111;
+  font-size: 9px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #5A5A58;
+}
+
+.admin-table td {
+  font-size: 12px;
+  color: #B8B8B4;
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.status-badge {
+  font-size: 8px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 4px 8px;
+  display: inline-block;
+}
+
+.status-unread {
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+}
+
+.status-read {
+  border: 1px solid #222222;
+  color: #5A5A58;
+}
+
+/* Image preview box */
+.admin-img-preview {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #222222;
+}
+
+/* Admin Login Panel */
+.admin-login-layout {
+  width: 100vw;
+  height: 100vh;
+  background-color: #080808;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  color: #F5F5F0;
+}
+
+.admin-login-box {
+  width: 400px;
+  background-color: #111111;
+  border: 1px solid #222222;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.admin-login-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-login-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.admin-login-subtitle {
+  font-size: 8px;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #5A5A58;
+}
+
+.admin-error-text {
+  color: #FF4444;
+  font-size: 11px;
+  text-align: center;
+}

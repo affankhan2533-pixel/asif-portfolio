@@ -1,0 +1,225 @@
+/* ═══════════════════════════════════════════════════════════
+   NAVBAR & MOBILE MENU — Complete Premium Stylesheet
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Main Navbar Wrapper ── */
+.navbar-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 clamp(24px, 5vw, 80px);
+  height: 72px;
+  background: rgba(8, 8, 8, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s ease,
+              border-color 0.4s ease,
+              padding 0.4s ease;
+}
+
+.navbar-main.scrolled {
+  height: 58px;
+  background: rgba(8, 8, 8, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Ensure navbar stays on top and visible when overlay is open */
+.navbar-main.menu-is-open {
+  background: transparent !important;
+  border-bottom: 1px solid transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ── Logo ── */
+.navbar-logo {
+  font-family: "'Cormorant Garamond', serif";
+  font-size: 19px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #F5F5F5;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-logo-dot {
+  color: #C9A96E;
+  margin: 0 4px;
+}
+
+/* ── Desktop CTAs ── */
+.nav-links-desktop {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.nav-book-btn {
+  padding: 9px 22px !important;
+  font-size: 9px !important;
+  letter-spacing: 0.22em !important;
+  display: inline-flex;
+}
+
+/* ── Hamburger Lines ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.navbar-hamburger-line {
+  display: block;
+  height: 1px;
+  background: #DDDDDD;
+  transform-origin: center;
+}
+
+/* ── Mobile Menu Overlay ── */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9998;
+  background: rgba(6, 6, 6, 0.98);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Radial Glow */
+.mobile-menu-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(80vw, 360px);
+  height: min(80vw, 360px);
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Container */
+.mobile-menu-links-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+}
+
+/* Item Wrappers */
+.mobile-menu-item-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+}
+
+/* Links style */
+.mobile-menu-link {
+  font-family: "'Cormorant Garamond', Georgia, serif";
+  font-size: clamp(26px, 7vw, 34px);
+  font-weight: 300;
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-link:hover {
+  color: #C9A96E;
+}
+
+.mobile-menu-link-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #C9A96E;
+  letter-spacing: 0.05em;
+}
+
+/* Sub-labels */
+.mobile-menu-link-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 7.5px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #666666;
+}
+
+/* Booking button in menu */
+.mobile-menu-book-btn {
+  padding: 11px 28px !important;
+  font-size: 9px !important;
+  letter-spacing: 0.2em !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(201, 169, 110, 0.3) !important;
+  color: #C9A96E !important;
+}
+
+.mobile-menu-book-btn:hover {
+  border-color: rgba(201, 169, 110, 0.7) !important;
+  color: #FFFFFF !important;
+  background: rgba(201, 169, 110, 0.05) !important;
+}
+
+
+/* ── Media Breakpoints ── */
+@media (max-width: 768px) {
+  .navbar-main {
+    padding: 0 20px;
+    height: 58px; /* Slimmer defaults */
+  }
+
+  .navbar-main.scrolled {
+    height: 50px; /* Slimmer scrolled */
+  }
+
+  .navbar-logo {
+    font-size: 16px; /* Smaller brand text */
+  }
+
+  .nav-links-desktop {
+    display: none !important;
+  }
+
+  .nav-book-btn {
+    display: none !important;
+  }
+
+  .nav-hamburger {
+    display: flex !important;
+  }
+}

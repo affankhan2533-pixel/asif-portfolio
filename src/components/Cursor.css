@@ -1,0 +1,10 @@
+/* Normal cursor everywhere — custom cursor disabled */
+html, body,
+*, *::before, *::after,
+a, button, select, textarea, input, [role="button"] {
+  cursor: auto !important;
+}
+
+a, button, [role="button"] {
+  cursor: pointer !important;
+}

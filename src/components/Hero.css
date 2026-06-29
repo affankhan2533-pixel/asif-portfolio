@@ -1,0 +1,355 @@
+/* ═══════════════════════════════════════════════════════════
+   HERO — Complete Responsive Stylesheet
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Base section layout ─────────────────────────────────── */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+  /* Navbar height (72px) + desired gap (32px) = 104px top padding */
+  padding: 104px clamp(40px, 6vw, 100px) clamp(64px, 7vh, 90px);
+  overflow: hidden;
+  background: #080808;
+}
+
+/* ── Ambient glows ───────────────────────────────────────── */
+.hero-glow {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-glow-left {
+  top: -15%; left: -8%;
+  width: 55%; height: 65%;
+  background: radial-gradient(ellipse, rgba(201,169,110,0.07) 0%, transparent 70%);
+}
+.hero-glow-right {
+  bottom: -18%; right: -8%;
+  width: 50%; height: 60%;
+  background: radial-gradient(ellipse, rgba(60,80,200,0.07) 0%, transparent 70%);
+}
+
+/* ── Vignette ────────────────────────────────────────────── */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(8,8,8,0.5) 0%, transparent 50%),
+    linear-gradient(to top, rgba(8,8,8,0.65) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Left content column ─────────────────────────────────── */
+.hero-left {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Eyebrow ─────────────────────────────────────────────── */
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-eyebrow-line {
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: #C9A96E;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* ── Name + Portrait row (for mobile portrait positioning) ── */
+.hero-name-portrait-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-name-block {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Portrait: Mobile inline (hidden on desktop) ─────────── */
+.hero-portrait-mobile {
+  display: none; /* hidden by default (desktop uses sidebar) */
+}
+
+/* ── Portrait: Desktop sidebar (hidden on mobile) ────────── */
+.hero-portrait-desktop {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  width: clamp(260px, 28vw, 440px);
+}
+
+/* ── Portrait frame (shared) ─────────────────────────────── */
+.hero-portrait-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+}
+
+.hero-portrait-rim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 1px solid rgba(201,169,110,0.22);
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.04) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(255,255,255,0.02) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(0.9) contrast(1.05);
+  transition: filter 0.6s ease;
+}
+
+.hero-portrait-gradient {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(8,8,8,0.55) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.hero-portrait-badge {
+  position: absolute;
+  bottom: 16px; left: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(8,8,8,0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 7px 12px;
+}
+
+.hero-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #C9A96E;
+  animation: pulse-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ── Subtitle ────────────────────────────────────────────── */
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 300;
+  line-height: 1.85;
+  color: #AAAAAA;
+  max-width: 500px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Stats ───────────────────────────────────────────────── */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.hero-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.8vw, 38px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  line-height: 1;
+}
+.hero-stat-label {
+  color: #555;
+}
+
+/* ── CTA row ─────────────────────────────────────────────── */
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.hero-booking-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  padding-bottom: 4px;
+  transition: color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+.hero-booking-link:hover {
+  color: #C9A96E;
+  border-color: rgba(201,169,110,0.4);
+}
+
+/* ── Scroll indicator ────────────────────────────────────── */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  right: 80px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.hero-scroll-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 7px;
+  font-weight: 400;
+  letter-spacing: 0.55em;
+  color: #555;
+  text-transform: uppercase;
+  writing-mode: vertical-lr;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 56px;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤1100px) ────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .hero-section {
+    gap: 36px;
+    /* Navbar height (72px) + 28px spacing = 100px */
+    padding: 100px 48px clamp(60px, 6vh, 80px);
+  }
+  .hero-portrait-desktop {
+    width: clamp(220px, 32vw, 360px);
+  }
+}
+
+/* ── Mobile & Tablet Stack (≤768px) ──────────────────────── */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: flex-start;
+    /* Navbar height (60px) + 20px spacing = 80px top padding */
+    padding: 80px 24px 56px;
+    gap: 28px;
+    min-height: auto;
+  }
+
+  /* Hide desktop sidebar portrait */
+  .hero-portrait-desktop {
+    display: none !important;
+  }
+
+  /* Stack name and portrait vertically */
+  .hero-name-portrait-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .hero-name-block {
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Scale font-size clamp for tablet & mobile headers */
+  .hero-name-block span span {
+    font-size: clamp(48px, 12vw, 85px) !important;
+  }
+
+  /* Portrait: width 88%, centered, max-width to look clean on tablets */
+  .hero-portrait-mobile {
+    display: block;
+    width: 88%;
+    max-width: 420px;
+    margin: 0 auto;
+    align-self: center;
+  }
+
+  .hero-portrait-frame {
+    aspect-ratio: 2/3;
+    width: 100%;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    color: #BBBBBB;
+    max-width: 100%;
+  }
+
+  .hero-stats {
+    gap: 28px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero-stat-num {
+    font-size: clamp(20px, 5.5vw, 30px);
+  }
+
+  .hero-scroll-indicator {
+    display: none;
+  }
+
+  .hero-cta {
+    gap: 20px;
+    width: 100%;
+  }
+  .hero-booking-link {
+    font-size: 10px;
+  }
+}
+
+/* ── Small Mobile (≤480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+  .hero-section {
+    /* Navbar height (60px) + 16px spacing = 76px top padding */
+    padding: 76px 18px 48px;
+    gap: 24px;
+  }
+
+  .hero-portrait-mobile {
+    width: 90%;
+    max-width: 320px;
+  }
+}

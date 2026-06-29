@@ -1,0 +1,27 @@
+/* ─── WORK COMPONENT ─────────────────────────────────────── */
+.wk-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+  direction: ltr !important; /* Normal stack layout for mobile */
+}
+
+/* Ensure child layouts read normal direction on mobile stack */
+.wk-card > * {
+  direction: ltr !important;
+}
+
+@media (min-width: 900px) {
+  .wk-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+  .wk-card.wk-card-reversed {
+    direction: rtl !important;
+  }
+  /* Inside elements must read left-to-right */
+  .wk-card.wk-card-reversed > * {
+    direction: ltr !important;
+  }
+}
